@@ -112,7 +112,7 @@ function gameInit() {
         id: "end"
     });
     createjs.Sound.registerSound({
-        src: "./static/music/end2.mp3",
+        src: "./static/music/end1.mp3",
         id: "end1"
     });
     createjs.Sound.registerSound({
