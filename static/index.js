@@ -112,6 +112,22 @@ function gameInit() {
         id: "end"
     });
     createjs.Sound.registerSound({
+        src: "./static/music/end2.mp3",
+        id: "end1"
+    });
+    createjs.Sound.registerSound({
+        src: "./static/music/end2.mp3",
+        id: "end2"
+    });
+    createjs.Sound.registerSound({
+        src: "./static/music/end3.mp3",
+        id: "end3"
+    });
+    createjs.Sound.registerSound({
+        src: "./static/music/end4.mp3",
+        id: "end4"
+    });
+    createjs.Sound.registerSound({
         src: "./static/music/tap.mp3",
         id: "tap"
     });
@@ -180,7 +196,6 @@ function gameTime() {
         GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;时间到！';
         gameOver();
         GameLayerBG.className += ' flash';
-        createjs.Sound.play("end");
     } else {
         GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
     }
@@ -343,11 +358,11 @@ function shareText(score) {
         return '倒计时多了' + ((deviation_time / 1000) - 20).toFixed(2) + "s";
     }
     SubmitResults();
-    if (score <= 49) return '弱子';
-    if (score <= 99) return "come on let's go!";
-    if (score <= 149) return "deep dark fantasies";
-    if (score <= 199) return "nice ass";
-    return "yeah,smart ass";
+    if (score <= 49) {createjs.Sound.play("end");return '弱子';}
+    if (score <= 99) {createjs.Sound.play("end1");return "come on let's go!";}
+    if (score <= 149) {createjs.Sound.play("end2");return "deep dark fantasies";}
+    if (score <= 199) {createjs.Sound.play("end3");return "nice ass";}
+    {createjs.Sound.play("end4");return "yeah,smart ass";}
 }
 
 function toStr(obj) {
